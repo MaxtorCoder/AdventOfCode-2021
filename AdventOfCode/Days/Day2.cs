@@ -4,7 +4,7 @@ namespace AdventOfCode.Days
 {
     public class Day2 : IDay
     {
-        public void RunPart1()
+        public object RunPart1()
         {
             var position = new Vector2(0.0f, 0.0f);
 
@@ -34,10 +34,10 @@ namespace AdventOfCode.Days
                 }
             }
 
-            Console.WriteLine($"Part 1: {position.X * position.Y}");
+            return position.X * position.Y;
         }
 
-        public void RunPart2()
+        public object RunPart2()
         {
             var horizontal = 0;
             var aim = 0;
@@ -71,7 +71,7 @@ namespace AdventOfCode.Days
                 }
             }
 
-            Console.WriteLine($"Part 2: {horizontal * depth}");
+            return horizontal * depth;
         }
     }
 }

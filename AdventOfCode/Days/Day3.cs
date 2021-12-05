@@ -2,7 +2,7 @@
 {
     public class Day3 : IDay
     {
-        public void RunPart1()
+        public object RunPart1()
         {
             var lines = File.ReadAllLines("Inputs/Day3.txt");
 
@@ -31,10 +31,11 @@
 
             var gammaRateDec = Convert.ToInt32(gammaRate, 2);
             var episolonRateDec = Convert.ToInt32(epsilonRate, 2);
-            Console.WriteLine($"Part 1: {gammaRateDec} * {episolonRateDec} = {gammaRateDec * episolonRateDec}");
+
+            return gammaRateDec * episolonRateDec;
         }
 
-        public void RunPart2()
+        public object RunPart2()
         {
             var lines = File.ReadAllLines("Inputs/Day3.txt");
 
@@ -59,7 +60,8 @@
 
             var num1 = Convert.ToInt32(commonStrings[0], 2);
             var num2 = Convert.ToInt32(oddStrings[0], 2);
-            Console.WriteLine($"Part 1: {num1} * {num2} = {num1 * num2}");
+
+            return num1 * num2;
         }
 
         private void RemoveEntriesWithPosition(int position, ref List<string> strings, bool takeOdd = false)

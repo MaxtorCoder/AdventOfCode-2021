@@ -1,12 +1,10 @@
-﻿using System.Diagnostics;
-
-namespace AdventOfCode.Days
+﻿namespace AdventOfCode.Days
 {
     public class Day4 : IDay
     {
         readonly List<Board> _boards = new();
 
-        public void RunPart1()
+        public object RunPart1()
         {
             var lines = File.ReadAllLines("Inputs/Day4.txt");
 
@@ -45,14 +43,15 @@ namespace AdventOfCode.Days
                         var intSequence = int.Parse(sequence);
                         var sumUnmarked = board.GetUnmarkedEntries().Sum();
 
-                        Console.WriteLine($"Part 1: {intSequence} * {sumUnmarked} = {intSequence * sumUnmarked}");
-                        return;
+                        return intSequence * sumUnmarked;
                     }
                 }
             }
+
+            return 0;
         }
 
-        public void RunPart2()
+        public object RunPart2()
         {
             var lines = File.ReadAllLines("Inputs/Day4.txt");
 
@@ -82,7 +81,7 @@ namespace AdventOfCode.Days
             var intSequence = int.Parse(lastSequence);
             var sumUnmarked = lastBoard.GetUnmarkedEntries().Sum();
 
-            Console.WriteLine($"Part 2: {intSequence} * {sumUnmarked} = {intSequence * sumUnmarked}");
+            return intSequence * sumUnmarked;
         }
     }
 

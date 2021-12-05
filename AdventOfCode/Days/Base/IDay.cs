@@ -2,6 +2,6 @@
 
 public interface IDay
 {
-    void RunPart1();
-    void RunPart2();
+    object RunPart1();
+    object RunPart2();
 }

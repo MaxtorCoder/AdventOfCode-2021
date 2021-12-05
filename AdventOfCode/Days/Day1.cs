@@ -2,7 +2,7 @@
 
 public class Day1 : IDay
 {
-    public void RunPart1()
+    public object RunPart1()
     {
         var values = FileReader.ReadFileSingleLine<int>("Inputs/Day1.txt");
 
@@ -13,10 +13,10 @@ public class Day1 : IDay
                 ++increaseCount;
         }
 
-        Console.WriteLine($"Part 1: {increaseCount}");
+        return increaseCount;
     }
 
-    public void RunPart2()
+    public object RunPart2()
     {
         var values = FileReader.ReadFileSingleLine<int>("Inputs/Day1.txt");
 
@@ -39,6 +39,6 @@ public class Day1 : IDay
                 ++increaseCount;
         }
 
-        Console.WriteLine($"Part 2: {increaseCount}");
+        return increaseCount;
     }
 }

@@ -4,7 +4,7 @@
     {
         readonly Dictionary<(int X, int Y), int> _board = new();
 
-        public void RunPart1()
+        public object RunPart1()
         {
             var lines = File.ReadAllLines("Inputs/Day5.txt");
 
@@ -37,24 +37,10 @@
                     maxNumber = y2;
             }
 
-            var intersectAbove2 = 0;
-            for (var x = 0; x <= maxNumber; ++x)
-            {
-                for (var y = 0; y <= maxNumber; ++y)
-                {
-                    if (_board.ContainsKey((y, x)))
-                    {
-                        if (_board[(y, x)] >= 2)
-                            ++intersectAbove2;
-                    }
-                }
-            }
-
-            Console.WriteLine();
-            Console.WriteLine($"Part 1: {intersectAbove2}");
+            return GetIntersect(maxNumber);
         }
 
-        public void RunPart2()
+        public object RunPart2()
         {
             var lines = File.ReadAllLines("Inputs/Day5.txt");
 
@@ -87,21 +73,7 @@
                     maxNumber = y2;
             }
 
-            var intersectAbove2 = 0;
-            for (var x = 0; x <= maxNumber; ++x)
-            {
-                for (var y = 0; y <= maxNumber; ++y)
-                {
-                    if (_board.ContainsKey((y, x)))
-                    {
-                        if (_board[(y, x)] >= 2)
-                            ++intersectAbove2;
-                    }
-                }
-            }
-
-            Console.WriteLine();
-            Console.WriteLine($"Part 2: {intersectAbove2}");
+            return GetIntersect(maxNumber);
         }
 
         private void MarkCoords(int x1, int x2, int y1, int y2)
@@ -152,6 +124,24 @@
             if (!_board.ContainsKey((x, y)))
                 _board.Add((x, y), 0);
             _board[(x, y)]++;
+        }
+
+        private int GetIntersect(int maxNumber)
+        {
+            var intersectAbove2 = 0;
+            for (var x = 0; x <= maxNumber; ++x)
+            {
+                for (var y = 0; y <= maxNumber; ++y)
+                {
+                    if (_board.ContainsKey((y, x)))
+                    {
+                        if (_board[(y, x)] >= 2)
+                            ++intersectAbove2;
+                    }
+                }
+            }
+
+            return intersectAbove2;
         }
     }
 }
