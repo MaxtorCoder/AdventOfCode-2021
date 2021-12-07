@@ -4,7 +4,9 @@ public class Day1 : IDay
 {
     public object RunPart1()
     {
-        var values = FileReader.ReadFileSingleLine<int>("Inputs/Day1.txt");
+        var values = File.ReadAllLines("Inputs/Day1.txt")
+            .Select(int.Parse)
+            .ToArray();
 
         var increaseCount = 0;
         for (var i = 1; i < values.Length; ++i)
@@ -18,7 +20,9 @@ public class Day1 : IDay
 
     public object RunPart2()
     {
-        var values = FileReader.ReadFileSingleLine<int>("Inputs/Day1.txt");
+        var values = File.ReadAllLines("Inputs/Day1.txt")
+             .Select(int.Parse)
+             .ToArray();
 
         // Assemble sliding window
         var slidingWindow = new List<int>();
